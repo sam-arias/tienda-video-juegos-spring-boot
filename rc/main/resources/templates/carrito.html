@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="/styles/styles_admin.css">
+    <link rel="stylesheet" href="/styles/styles_inicio.css">
+</head>
+<body>
+    <header>
+        <h1>Carrito de Compras</h1>
+        <nav class="navbar">
+            <a href="/inicio">Inicio</a>
+            <a href="/carrito">Carrito</a>
+            <a href="/administrador">Administrador</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Carrito de Compras</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Código Tienda</th> 
+                    <th>Plataforma</th> 
+                    <th>Alto</th>
+                    <th>Ancho</th> 
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iteración sobre la lista de videojuegos utilizando Thymeleaf -->
+                <tr th:each="videojuego : ${carrito}">
+                    <td th:text="${videojuegoFisic.titulo}">Titulo</td>
+                    <td th:text="${videojuegoFisic.id}">Código Tienda</td>
+                    <td th:text="${videojuegoFisic.plataforma}">Plataforma</td>
+                    <td th:text="${videojuegoFisic.largo}">largo</td>
+                    <td th:text="${videojuegoFisic.ancho}">Ancho</td>
+                    <td th:text="${videojuegoFisic.disponibles}">Cantidad</td>
+                    <td th:text="${videojuegoFisic.precio}">Precio</td>
+                    <td>
+                        <div class="enlaces">
+                        <!-- Enlace para editar el estudiante -->
+                        <a class="tabla" th:href="@{/videojuego/editar/fisico/{id}(id=${videojuegoFisico.id})}">Editar</a>
+                        <!-- Enlace para eliminar el estudiante, con confirmación en JavaScript -->
+                        <a th:href="@{/videojuego/eliminar/{id}(id=${videojuegoFisico.id})}" 
+                        onclick="return confirm('¿Estás seguro de que deseas eliminar este videojuego?');">Eliminar</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="total">
+            <p>Total: $300</p>
+            <button>Comprar</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2021 Tienda de Videojuegos</p>
+    </footer>
+</body>
+</html>

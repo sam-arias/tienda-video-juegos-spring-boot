@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito de Compras</title>
+
+    <!-- Enlaces a hojas de estilo -->
+    <link rel="stylesheet" href="/styles/styles_admin.css" />
+    <link rel="stylesheet" href="/styles/styles_inicio.css" />
+</head>
+
+<body>
+    <!-- Cabecera con título y navegación -->
+    <header>
+        <h1>Carrito de Compras - Games JS</h1>
+        <nav class="navbar">
+            <a href="/inicio">Inicio</a>
+            <a href="/carrito">Carrito</a>
+            <a href="/administrador">Administrador</a>
+        </nav>
+    </header>
+        
+    <!-- Tabla con los productos del carrito -->
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Plataforma</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="videojuego : ${carrito.productos}">
+                <td th:text="${videojuego.titulo}"></td>
+                <td th:text="${videojuego.plataforma}"></td>
+                <td th:text="${videojuego.precio}"></td>
+                <td>
+                    <form method="post" th:action="@{/carrito/eliminar}">
+                        <input type="hidden" name="id" th:value="${videojuego.id}" />
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Formulario para realizar la compra -->
+    <form th:action="@{/carrito/comprar}" class="boton-compra" method="post">
+        <div class="form-group">
+            <label for="metodoPago">Método de Pago:</label>
+            <select id="metodoPago" name="metodoPago" required>
+                <option value="efectivo">Efectivo</option>
+                <option value="debito">Tarjeta de Débito</option>
+                <option value="creditoA">Tarjeta de Crédito A</option>
+                <option value="creditoB">Tarjeta de Crédito B</option>
+                <option value="creditoC">Tarjeta de Crédito C</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="cantidad">Cantidad de Juegos:</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="direccion">Dirección de Envío:</label>
+            <input type="text" id="direccion" name="direccion" required>
+        </div>
+
+        <div class="form-group">
+            <p th:text="${mensaje}" class="error-message"></p>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Confirmar Compra</button>
+        </div>
+    </form>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2021 Tienda de Videojuegos</p>
+    </footer>
+</body>
+
+</html>

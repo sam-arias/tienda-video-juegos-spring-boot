@@ -1,0 +1,74 @@
+h2 {
+    padding: 10px;
+}
+
+/* Estilos de la tabla */
+table {
+    width: 100%;
+    /* La tabla ocupa todo el ancho disponible */
+    border-collapse: collapse;
+    /* Colapsa los bordes */
+    margin-top: 20px;
+    /* Espaciado superior */
+    background: white;
+    /* Fondo blanco */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+}
+
+/* Estilos de las celdas */
+th,
+td {
+    padding: 12px;
+    /* Espaciado interno */
+    text-align: left;
+    /* Texto alineado a la izquierda */
+    border-bottom: 1px solid #ddd;
+    /* Borde inferior gris claro */
+}
+
+/* Estilos para los encabezados de la tabla */
+th {
+    background-color: #333333;
+    /* Fondo verde */
+    color: white;
+    /* Texto blanco */
+}
+
+form button {
+    background-color: #50E3C2;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: var(--fuente-Delius-Swash);
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.enlaces a {
+    background-color: #50E3C2;
+    border-radius: 7px;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: var(--fuente-Delius-Swash);
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.enlaces a:hover {
+    background-color: #3bbca0;
+    color: #ffffff;
+}
+

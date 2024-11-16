@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear VideoJuego</title>
+    <link rel="stylesheet" href="/styles/styles_inicio.css">
+    <link rel="stylesheet" href="/styles/editar_videojuegos.css">
+</head>
+<body>
+    <header>
+        <h1>Crear VideoJuego Fisico</h1>
+    </header>
+    <!-- Formulario para crear un videojuego-->
+    <form action="#" th:action="@{/videojuego/nuevo/fisico}" th:object="${videojuegoFisico}" method="post">
+        <table>
+            <!-- Campo para crear el nombre -->
+            <tr>
+                <td><label for="titulo">Titulo:</label></td>
+                <td><input type="text" id="titulo" th:field="*{titulo}" required /></td>
+            </tr>
+            <!-- Campo para ingresar la URL de la imagen -->
+            <tr>
+                <td><label for="imagen">URL de la Imagen:</label></td>
+                <td><input type="text" id="imagen" th:field="*{imagen}" required /></td>
+            </tr>
+            <!-- Campo para crear la plataforma -->
+            <tr>
+                <td><label for="plataforma">Plataforma:</label></td>
+                <td><input type="text" id="plataforma" th:field="*{plataforma}" required /></td>
+            </tr>
+            <!-- Campo para crear las dimensiones -->
+            <tr>
+                <td><label for="largo">Largo:</label></td>
+                <td><input type="text" id="largo" th:field="*{largo}" required /></td>
+            </tr>
+            <tr>
+                <td><label for="ancho">Ancho:</label></td>
+                <td><input type="text" id="ancho" th:field="*{ancho}" required /></td>
+            </tr>
+            <!-- Campo para crear la cantidad -->
+            <tr>
+                <td><label for="disponibles">Cantidad:</label></td>
+                <td><input type="text" id="disponibles" th:field="*{disponibles}" required /></td>
+            </tr>
+            <!-- Campo para crear el precio -->
+            <tr>
+                <td><label for="precio">Precio:</label></td>
+                <td><input type="text" id="precio" th:field="*{precio}" required /></td>
+            </tr>
+            <!-- Campo para crear la reseña -->
+            <tr>
+                <td><label for="resena">Reseña:</label></td>
+                <td><input type="text" id="resena" th:field="*{resena}" required /></td>
+            </tr>
+            <!-- Botón para agregar el videojuego -->
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="submit">Agregar Videojuego</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <!-- Enlace para volver a la lista de estudiantes -->
+    <div class="enlaces">
+        <a href="/administrador">Volver a la lista</a>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Tienda de Videojuegos. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

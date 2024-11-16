@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra</title>
+    <link rel="stylesheet" href="/styles/styles_inicio.css">
+</head>
+
+<body>
+    <header>
+        <h1>Confirmación de Compra</h1>
+    </header>
+
+    <div class="mensaje">
+        <h2 th:text="${mensaje}">¡Gracias por tu compra!</h2>
+        <p>Serás redirigido al inicio en unos momentos...</p>
+    </div>
+
+    <script>
+        // Redirigir a la página de inicio después de 5 segundos
+        setTimeout(function () {
+            window.location.href = "/inicio";
+        }, 5000);
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Tienda de Videojuegos. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>

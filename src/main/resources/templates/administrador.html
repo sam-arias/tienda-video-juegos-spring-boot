@@ -1,0 +1,106 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Administrador de Videojuegos</title>
+        <link rel="stylesheet" href="/styles/styles_inicio.css">
+        <link rel="stylesheet" href="/styles/styles_admin.css">
+    </head>
+    <body>
+        <header>
+            <h1>Tienda de Videojuegos - Games JS</h1>
+            <nav class="navbar">
+                <a href="/inicio">Inicio</a>
+                <a href="/carrito">Carrito</a>
+                <a href="/administrador">Administrador</a>
+            </nav>
+        </header>
+            <h2>Lista de VideoJuegos Fisicos</h2>
+            <!-- Enlace para agregar un nuevo videojuego -->
+            <div class="enlaces">
+                <a href="/videojuego/nuevo/fisico">Agregar Nuevo VideoJuego</a>
+            </div>
+        
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Código Tienda</th> 
+                        <th>Plataforma</th> 
+                        <th>Alto</th>
+                        <th>Ancho</th> 
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Iteración sobre la lista de videojuegos utilizando Thymeleaf -->
+                    <tr th:each="videojuegoFisico : ${videojuegosFisicos}">
+                        <td th:text="${videojuegoFisico.titulo}">Titulo</td>
+                        <td th:text="${videojuegoFisico.id}">Código Tienda</td>
+                        <td th:text="${videojuegoFisico.plataforma}">Plataforma</td>
+                        <td th:text="${videojuegoFisico.largo}">largo</td>
+                        <td th:text="${videojuegoFisico.ancho}">Ancho</td>
+                        <td th:text="${videojuegoFisico.disponibles}">Cantidad</td>
+                        <td th:text="${videojuegoFisico.precio}">Precio</td>
+                        <td>
+                            <div class="enlaces">
+                            <!-- Enlace para editar el estudiante -->
+                            <a class="tabla" th:href="@{/videojuego/editar/fisico/{id}(id=${videojuegoFisico.id})}">Editar</a>
+                            <!-- Enlace para eliminar el estudiante, con confirmación en JavaScript -->
+                            <a th:href="@{/videojuego/eliminar/{id}(id=${videojuegoFisico.id})}" 
+                            onclick="return confirm('¿Estás seguro de que deseas eliminar este videojuego?');">Eliminar</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Lista de VideoJuegos Digitales</h2>
+            <!-- Enlace para agregar un nuevo videojuego -->
+            <div class="enlaces">
+                <a href="/videojuego/nuevo/digital">Agregar Nuevo VideoJuego</a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Código Tienda</th> 
+                        <th>Plataforma</th> 
+                        <th>Tamaño(GB)</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Iteración sobre la lista de videojuegos utilizando Thymeleaf -->
+                    <tr th:each="videojuegoDigital : ${videojuegosDigitales}">
+                        <td th:text="${videojuegoDigital.titulo}">Titulo</td>
+                        <td th:text="${videojuegoDigital.id}">Código Tienda</td>
+                        <td th:text="${videojuegoDigital.plataforma}">Plataforma</td>
+                        <td th:text="${videojuegoDigital.tamano}">Tamaño</td>
+                        <td th:text="${videojuegoDigital.disponibles}">Cantidad</td>
+                        <td th:text="${videojuegoDigital.precio}">Precio</td>
+                        <td>
+                            <div class="enlaces">
+                            <!-- Enlace para editar el estudiante -->
+                            <a class="tabla" th:href="@{/videojuego/editar/digital/{id}(id=${videojuegoDigital.id})}">Editar</a>
+                            <!-- Enlace para eliminar el estudiante, con confirmación en JavaScript -->
+                            <a th:href="@{/videojuego/eliminar/{id}(id=${videojuegoDigital.id})}" 
+                            onclick="return confirm('¿Estás seguro de que deseas eliminar este videojuego?');">Eliminar</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            
+            <!-- Pie de página -->
+            <footer>
+                <p>&copy; 2024 Gestión de Estudiantes. Todos los derechos reservados.</p>
+            </footer>
+    </body>
+    </html>

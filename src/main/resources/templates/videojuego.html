@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games JS</title>
+    <link rel="stylesheet" href="/styles/styles_inicio.css">
+</head>
+<body>
+    <header>
+        <h1>Tienda de Videojuegos - Games JS</h1>
+        <nav class="navbar">
+            <a href="/inicio">Inicio</a>
+            <a href="/carrito">Carrito</a>
+            <a href="/administrador">Administrador</a>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <h2>¡Los mejores videojuegos!</h2>
+    </div>
+
+    <section class="videojuegos-section">
+        <h2>Video Juegos Fisicos</h2>
+        <div class="productos">
+            <div th:each="videojuegoFisico : ${videojuegosFisicos}" class="card">
+                <img th:src="${videojuegoFisico.imagen}" th:alt="${videojuegoFisico.titulo}">
+                <h3 th:text="${videojuegoFisico.titulo}">Nombre del videojuego</h3>
+                <p th:text="'Precio: $' + ${videojuegoFisico.precio}">Precio</p>
+                <p th:text="'Cantidad: ' + ${videojuegoFisico.disponibles}">Cantidad</p>
+                <div class="boton-informacion">
+                    <button onclick="toggleInfo(this)">Más información ↓</button>
+                    <div class="info">
+                        <p th:text="'Plataforma: ' + ${videojuegoFisico.plataforma}">Plataforma</p>
+                        <p th:text="'Dimensiones: ' + ${videojuegoFisico.largo} + ' x ' + ${videojuegoFisico.ancho}">Dimensiones</p>
+                        <p th:text="'Reseña: ' + ${videojuegoFisico.resena}">Reseña</p>
+                    </div>
+                </div>
+                <button th:onclick="'agregarAlCarrito(' + ${videojuegoFisico.id} + ', \'Fisico\')'">Agregar al carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="videojuegos-section">
+        <h2>Video Juegos Digitales</h2>
+        <div class="productos">
+            <div th:each="videojuegoDigital : ${videojuegosDigitales}" class="card">
+                <img th:src="${videojuegoDigital.imagen}" th:alt="${videojuegoDigital.titulo}">
+                <h3 th:text="${videojuegoDigital.titulo}">Nombre del videojuego</h3>
+                <p th:text="'Precio: $' + ${videojuegoDigital.precio}">Precio</p>
+                <p th:text="'Cantidad: ' + ${videojuegoDigital.disponibles}">Cantidad</p>
+                <div class="boton-informacion">
+                    <button onclick="toggleInfo(this)">Más información ↓</button>
+                    <div class="info">
+                        <p th:text="'Plataforma: ' + ${videojuegoDigital.plataforma}">Plataforma</p>
+                        <p th:text="'Tamaño: ' + ${videojuegoDigital.tamano} + 'GB'">Tamaño</p>
+                        <p th:text="'Reseña: ' + ${videojuegoDigital.resena}">Reseña</p>
+                    </div>
+                </div>
+                <button th:onclick="'agregarAlCarrito(' + ${videojuegoDigital.id} + ', \'Digital\')'">Agregar al carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formularios ocultos -->
+    <form id="form-agregar-carrito" method="post" th:action="@{/carrito/agregar}">
+        <input type="hidden" name="id" id="producto-id">
+        <input type="hidden" name="tipo" id="producto-tipo">
+    </form>
+
+    <form id="form-agregar-carrito-digital" method="post" th:action="@{/carrito/agregar}">
+        <input type="hidden" name="id" id="producto-digital-id">
+        <input type="hidden" name="tipo" id="producto-digital-tipo">
+    </form>
+
+    <script>
+        function agregarAlCarrito(id, tipo) {
+            if (tipo === 'Fisico') {
+                document.getElementById('producto-id').value = id;
+                document.getElementById('producto-tipo').value = tipo;
+                document.getElementById('form-agregar-carrito').submit();
+            } else if (tipo === 'Digital') {
+                document.getElementById('producto-digital-id').value = id;
+                document.getElementById('producto-digital-tipo').value = tipo;
+                document.getElementById('form-agregar-carrito-digital').submit();
+            }
+        }
+
+        function toggleInfo(button) {
+            const info = button.nextElementSibling;
+            const isHidden = info.style.display === 'none' || info.style.display === '';
+            info.style.display = isHidden ? 'block' : 'none';
+            button.textContent = isHidden ? 'Menos información ↑' : 'Más información ↓';
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Tienda de Videojuegos. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

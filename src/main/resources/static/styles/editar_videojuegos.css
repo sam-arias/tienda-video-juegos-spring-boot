@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Playwrite+DE+Grund:wght@100..400&display=swap');
+
+/* Estilos básicos */
+body {
+    background-color: #333; /* Fondo oscuro */
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header h1 {
+    color: #FFF;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilos para el formulario */
+form {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #50E3C2; /* Verde personalizado */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-family: "Delius Swash Caps", cursive;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3bbca0; /* Un tono más oscuro al pasar el mouse */
+}
+
+/* Estilos para el enlace y el pie de página */
+.enlaces {
+    margin-top: 20px;
+}
+
+.enlaces a {
+    text-decoration: none;
+    color: #50E3C2;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.enlaces a:hover {
+    color: #3bbca0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: var(--color-letra);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
