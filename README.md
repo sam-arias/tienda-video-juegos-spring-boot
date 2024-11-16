@@ -3,5 +3,6 @@
 - Los videojuegos se clasifican en Fisicos y Digitales
 - Se conecto a una base de datos para llevar un registro
 - Se creo una pasarela de pagos
+- Las imagenes fueron tomadas de Intenert como referencia
 
 # Es un practica y esta en actualización
